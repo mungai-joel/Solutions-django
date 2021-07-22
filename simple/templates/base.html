@@ -1,0 +1,231 @@
+{% load bootstrap5 %} {% bootstrap_css %} {% bootstrap_javascript %}{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>simple solutions</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel='stylesheet' href="{% static 'css/style.css' %}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300italic,regular,italic,600,600italic,700,700italic,800,800italic&amp;subset=latin" rel="stylesheet" type="text/css">
+    <link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Google+Sans:400,500,700|Google+Sans+Text:400">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body class="body-innerwrapper">
+    <section id="sp-top-bar">
+        <div class="container">
+            <div class="row">
+                <div id="sp-top2" class="col-sm-12 col-md-12">
+                    <div class="sp-column">
+                        <div class="sp-module">
+                            <div class="sp-module-content">
+                                <div class="custom">
+
+                                    <ul>
+                                        <li class="nav-item" style="float: right;">
+                                            {% if user.is_authenticated %} Hello, {{ user.username|default:'Guest' }}!
+
+                                            <a class="btn btn-primary" href="/accounts/logout" role="button">Log Out</a> {% elif user.is_authenticated == False %}
+                                            <a class="btn btn-primary" href="/accounts/register" role="button">Sign up</a>
+
+                                            <a class="btn btn-primary" href="/accounts/login" role="button">Login</a> {% endif %}
+                                        </li>
+
+                                    </ul>
+
+                                    <p>
+                                        <span style="color: #ffffff; padding-left: 50px;">
+                                            <i class="material-icons" style="font-size:13px">stay_current_portrait</i>
+                                    <span style="font-size: 10pf;" >TEL</span> :+254202220544&nbsp;
+                                        <span style="font-size: 10pt;">
+                                    <span class="st">&nbsp;
+                                        <span class="st" style="padding-left: 20px;">
+                                            <i class="material-icons" style="font-size:13px">mail_outline</i>
+                                <a href="#" style="color: #ffffff;">&nbsp; EMAIL: </a>
+                            </span>
+                                        <a href="#" style="color: #ffffff;"> </a>
+                                        <a href="/Aboutus">
+                                            <span style="color: #ffffff;">
+                                <span style="font-size: 12pt;">jambopay@jambopay.com</span>
+
+                                            </span>
+
+                                        </a>
+                                        </span>
+
+                                        </span>
+                                        </span>
+                                    </p>
+                                </div>
+
+                                <br>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <header id="sp-header">
+        <div class="container" id="logo1">
+            <div class="row" id="logo2">
+                <div id="logo">
+                    <div class="col-lg-1">
+                        <a class="logo" href="/">
+                            <img class="sp-retina-logo" src="https://pbs.twimg.com/profile_images/984043066435817472/9JyTh34a_400x400.jpg" alt="Solutions " width="150" height="104" style="padding-left: 50px;">
+                        </a>
+
+
+                    </div>
+                </div>
+                <div id="sp-top3" class="col-xs-4 col-sm-9 col-md-9">
+                    <div class="column "></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    {% include "navbar.html" %} {% block content %} {% endblock %}
+
+    <footer class="text-center text-lg-start bg-light text-muted">
+        <!-- Section: Social media -->
+        <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+            <!-- Left -->
+            <div class="me-5 d-none d-lg-block">
+                <span>Get connected with us on social networks:</span>
+            </div>
+            <!-- Left -->
+
+            <!-- Right -->
+            <div>
+                <a href="https://www.facebook.com/jambopay/" class="me-4 text-reset">
+                    <i class="fa fa-facebook" style="font-size:36px"></i>
+                </a>
+                <a href="https://twitter.com/jambopay?lang=en" class="me-4 text-reset">
+                    <i class="fa fa-twitter" style="font-size:36px"></i>
+                </a>
+                <!-- <a href="" class="me-4 text-reset">
+                    <i class="fa fa-google" style="font-size:36px"></i>
+                </a>
+
+                <a href="" class="me-4 text-reset">
+                    <i class="fa fa-linkedin" style="font-size:36px"></i>
+                </a>
+                <a href="" class="me-4 text-reset">
+                    <i class="fa fa-github" style="font-size:36px"></i>
+                </a>
+            </div> -->
+                <!-- Right -->
+        </section>
+        <!-- Section: Social media -->
+
+        <!-- Section: Links  -->
+        <section class="">
+            <div class="container text-center text-md-start mt-5">
+                <!-- Grid row -->
+                <div class="row mt-3">
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                        <!-- Content -->
+                        <h6 class="text-uppercase fw-bold mb-4">
+                            <i class="fas fa-gem me-3"></i>Jambopay
+                        </h6>
+                        <p>
+                            View Park Towers <br> <br> 12th Floor Monrovia Street <br> <br> P.O Box 15478 - 00100 <br><br> Nairobi
+
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold mb-4">
+                            General contacts
+                        </h6>
+                        <p>
+                            <i class="fa fa-envelope">  info@jambopay.com</i>
+                        </p>
+                        <p>
+                            <i class="fa fa-envelope">   jambopay@jambopay.com
+                            </i>
+                        </p>
+                        <p>
+
+                            <i class="fa fa-phone">   +254202220544</i>
+                        </p>
+                        <p>
+                            <i class="fa fa-phone">  +254202220545</i>
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4" style="padding-left: 80px;">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold mb-4">
+                            Customer Support
+                        </h6>
+                        <p>
+                            <i class="fa fa-envelope">   support@jambopay.com
+                            </i>
+                        </p>
+                        <p>
+
+                            <i class="fa fa-envelope">   customercare@jambopay.com
+                            </i>
+                        </p>
+                        <p>
+                            <i class="fa fa-phone">  +254709920000</i>
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4" style="padding-left: 89px;">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold mb-4">
+                            Sales
+
+                        </h6>
+                        <p>
+                            <i class="fa fa-envelope">   sales@jambopay.com
+                            </i>
+                        </p>
+
+                        <p>
+                            <i class="fa fa-phone">  +254202220545</i>
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+                </div>
+                <!-- Grid row -->
+            </div>
+        </section>
+        <!-- Section: Links  -->
+
+        <!-- Copyright -->
+        <div class="text-center p-4" style="background-color: #ec5924">
+            © 2021 Copyright: Jambopay
+            <a class="text-reset fw-bold" href="https://www.jambopay.com/">by Webtribe Limited</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+    {% bootstrap_javascript %}
+
+
+</body>
