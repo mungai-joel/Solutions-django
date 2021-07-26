@@ -29,6 +29,8 @@ urlpatterns = [
     path('outsourcing/',views.outsourcing, name="outsourcing"),
     path('support/',views.support, name="support"),
     path('telecom/',views.telecom, name="telecom"),
+    path('post_detail/',views.post_detail, name="post_detail"),
+
 
     # path('accounts/password_change/', views.password_change, name='password_change'),
     # path('accounts/password_change/done/' , views.password_change_done,name='password_change_done'),

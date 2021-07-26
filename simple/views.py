@@ -1,3 +1,4 @@
+
 from django.shortcuts import redirect, render
 from django.contrib import messages
 from django.contrib.auth import authenticate, login , logout
@@ -5,6 +6,9 @@ from django.contrib.auth.decorators import login_required
 from .forms import createuser , ContactForm
 from django.core.mail import send_mail
 from django.conf import settings
+from django.urls import reverse_lazy
+from .models import Post
+from .forms import CommentForm
 
 
 
@@ -93,8 +97,28 @@ def Hardware(request):
     return render(request, 'Haredware & software.html',context)
 
 def networking(request):
-    context = {}
-    return render(request, 'Networking.html',context)
+    posts = Post.objects.all()
+
+
+    return render(request, 'Networking.html',{'posts': posts})
+
+
+def post_detail(request, slug):
+    post = Post.objects.get(slug=slug)
+
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.post = post
+            comment.save()
+
+            return redirect('/post_detail', slug=post.slug)
+    else:
+        form = CommentForm()
+
+    return render(request, 'post_detail.html', {'post': post, 'form': form})
 
 @login_required
 def outsourcing(request):

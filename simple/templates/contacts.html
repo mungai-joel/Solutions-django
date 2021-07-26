@@ -1,28 +1,11 @@
 {% extends "base.html" %} {% block content %} {% load static %}{% load bootstrap5 %} {% bootstrap_css %}
 
 <style>
-    body,
-    html {
-        margin: 0;
-        padding: 0;
-        height: 100%;
-        background: #ffffff !important;
-    }
-    
     .user_card {
-        width: 350px;
         margin-top: auto;
         margin-bottom: auto;
         background: #ec5924;
-        position: relative;
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
         padding: 10px;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-        -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-        -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-        border-radius: 5px;
     }
     
     .form_container {
@@ -34,7 +17,6 @@
     }
     
     .login_btn {
-        width: 100%;
         background: #0572bc !important;
         color: white !important;
     }
@@ -51,14 +33,6 @@
     .input-group-text {
         background: #0572bc !important;
         color: white !important;
-        border: 0 !important;
-        border-radius: 0.25rem 0 0 0.25rem !important;
-    }
-    
-    .input_user,
-    .input_pass:focus {
-        box-shadow: none !important;
-        outline: 0px !important;
     }
 </style>
 
@@ -145,32 +119,26 @@
                         <h3 style="font-weight: normal;">Send a mail</h3>
                         <form method="POST" action="">
                             {% csrf_token %}
-                            <div class="input-group mb-2">
-                                <div class="input-group-append">
-                                    <span class="input-group-text" style="padding-right: 10px;">Email  </span>
-                                </div>
-                                {{form.email}}
+                            <div class="mb-3">
+                                <label for="formGroupExampleInput" class="form-label">E-mail</label> {{form.email}}
+
                             </div>
-                            <br>
-                            <div class="input-group mb-2">
-                                <div class="input-group-append">
-                                    <span class="input-group-text">Name  </span>
-                                </div>
-                                {{form.name}}
+
+
+
+                            <div class="mb-3">
+                                <label for="formGroupExampleInput" class="form-label">Name</label> {{form.name}}
+
                             </div>
-                            <br>
-                            <div class="input-group mb-2">
-                                <div class="input-group-append">
-                                    <span class="input-group-text">Subject</span>
-                                </div>
-                                {{form.subject}}
+
+                            <div class="mb-3">
+                                <label for="formGroupExampleInput" class="form-label">Subject</label> {{form.subject}}
+
                             </div>
-                            <br>
-                            <div class="input-group mb-2">
-                                <div class="input-group-append">
-                                    <span class="input-group-text">Message</span>
-                                </div>
-                                {{form.message}}
+
+                            <div class="mb-3">
+                                <label for="formGroupExampleInput" class="form-label">Message</label> {{form.message}}
+
                             </div>
 
 
