@@ -66,25 +66,24 @@
                                 <br>
 
                                 <div class="form-group">
-                                    <form method="POST" enctype="multipart/form-data">
-                                        {% csrf_token %} {% for post in posts %}
-                                        <div class="post block">
-                                            <h2 class="subtitle">{{ post.title }}</h2>
+                                    {% for post in posts %}
+                                    <div class="post block">
+                                        <h2 class="subtitle">{{ post.title }}</h2>
 
-                                            <small>Posted at {{ post.created_at }}</small>
+                                        <small>Posted at {{ post.created_at }}</small>
 
-                                            <p>{{ post.description }}</p>
+                                        <p>{{ post.description }}</p>
 
-                                            <br>
-                                            <p>{{ post.image }}</p>
+                                        <br>
 
-                                            <a href="/post_detail post.slug ">Read more</a> {% endfor %}
+                                        <img src="{{ post.image.url }}" />
 
-                                            <button class="btn btn-secondary">post</button>
-                                    </form>
+                                        <a href="/post_detail/{{post.id}}/">Add Comment</a>
+
+                                        <button class="btn btn-secondary">post</button>
 
                                     </div>
-                                    {% endif %}
+                                    {% endfor %} {% endif %}
 
                                     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur beatae, at nobis veritatis illo minima suscipit similique. At quas quam tenetur impedit quod dolore ducimus!</p>
                                     <p><span style="color: #ec5924;"><strong>Lorem ipsum dolor sit.:</strong></span></p>

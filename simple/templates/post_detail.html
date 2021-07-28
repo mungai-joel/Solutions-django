@@ -1,17 +1,17 @@
-{% extends 'blog/base.html' %} {% block content %}
+{% extends 'base.html' %} {% block content %}
 <h1 class="title">{{ post.title }}</h1>
 
-<small>Posted at {{ Post.date_added }}</small>
+<small>Posted at {{ post.created_at }}</small>
 
-<p><strong>{{ Post.intro }}</strong></p>
+<p><strong>{{ post.title }}</strong></p>
 
-<p>{{ Post.body }}</p>
+<p>{{ post.description }}</p>
 
 <hr>
 
 <h2 class="subtitle">Comments</h2>
 
-{% for comment in Post.comments.all %}
+{% for comment in post.comments.all %}
 <article class="media">
     <div class="media-content">
         <div class="content">

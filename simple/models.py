@@ -39,7 +39,6 @@ class Contact(models.Model):
 
 class Post (models.Model):
     title = models.TextField(max_length=50)
-    slug = models.SlugField()
     description = models.TextField(max_length=225)
     image = models.ImageField(upload_to ='images/')
     created_at = models.DateTimeField(auto_now_add=True)

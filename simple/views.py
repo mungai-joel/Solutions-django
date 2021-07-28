@@ -99,12 +99,11 @@ def Hardware(request):
 def networking(request):
     posts = Post.objects.all()
 
-
     return render(request, 'Networking.html',{'posts': posts})
 
 
-def post_detail(request, slug):
-    post = Post.objects.get(slug=slug)
+def post_detail(request, image_id=None):
+    post = Post.objects.get(id=image_id)
 
     if request.method == 'POST':
         form = CommentForm(request.POST)
@@ -114,7 +113,15 @@ def post_detail(request, slug):
             comment.post = post
             comment.save()
 
-            return redirect('/post_detail', slug=post.slug)
+        
+            return redirect("/post_detail/"+str(image_id)+"/")
+
+    if request.method == 'GET':
+        post = Post.objects.get(id=image_id)
+
+        return render(request, 'post_detail.html', {'post': post})
+
+
     else:
         form = CommentForm()
 

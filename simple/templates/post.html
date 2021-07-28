@@ -1,0 +1,23 @@
+{% extends 'base.html' %} {% block content %}
+
+
+
+<form method="post" action=".">
+    {% csrf_token %} {{ form.as_p }}
+
+    <div class="field">
+        <h1 class="title">{{ post.title }}</h1>
+
+        <small>Posted at {{ Post.created_at }}</small>
+
+        <p><strong>{{ Post.title }}</strong></p>
+
+        <p>{{ Post.description }}</p>
+
+        <hr>
+        <div class="control">
+            <button class="button is-success">Submit</button>
+        </div>
+    </div>
+</form>
+{% endblock %}

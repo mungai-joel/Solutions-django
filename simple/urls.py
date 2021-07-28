@@ -29,7 +29,7 @@ urlpatterns = [
     path('outsourcing/',views.outsourcing, name="outsourcing"),
     path('support/',views.support, name="support"),
     path('telecom/',views.telecom, name="telecom"),
-    path('post_detail/',views.post_detail, name="post_detail"),
+    path('post_detail/<int:image_id>/',views.post_detail, name="post_detail"),
 
 
     # path('accounts/password_change/', views.password_change, name='password_change'),
