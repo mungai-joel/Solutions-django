@@ -3,4 +3,12 @@ from .models import Contact, Post
 
 # Register your models here.
 admin.site.register (Contact)
-admin.site.register (Post) 
+admin.site.register (Post)
+
+
+
+
+
+
+
+

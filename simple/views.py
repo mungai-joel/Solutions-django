@@ -6,9 +6,9 @@ from django.contrib.auth.decorators import login_required
 from .forms import createuser , ContactForm
 from django.core.mail import send_mail
 from django.conf import settings
-from django.urls import reverse_lazy
 from .models import Post
 from .forms import CommentForm
+from .forms import PostForm
 
 
 
@@ -116,7 +116,7 @@ def post_detail(request, image_id=None):
         
             return redirect("/post_detail/"+str(image_id)+"/")
 
-    if request.method == 'GET':
+    if request.method == 'GET': 
         post = Post.objects.get(id=image_id)
 
         return render(request, 'post_detail.html', {'post': post})
@@ -126,6 +126,22 @@ def post_detail(request, image_id=None):
         form = CommentForm()
 
     return render(request, 'post_detail.html', {'post': post, 'form': form})
+
+def post(request):
+    if request.method == 'POST':
+        form = PostForm(request.POST)
+
+
+        if form.is_valid():
+            post = form.save(post=False)
+            post.save()
+
+            return render(request, '/post')
+
+    form = PostForm()
+
+    context ={'form': form}
+    return render(request, 'post.html',context)
 
 @login_required
 def outsourcing(request):

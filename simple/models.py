@@ -1,18 +1,32 @@
 from django.db import models
-from django.db.models.fields import SlugField
+from django.contrib.auth.models import AbstractUser
+
 # Create your models here.
 
+# Users... under maintanance
 
-# class Profile(models.Model):
-#     user = models.OneToOneField(User, on_delete=models.CASCADE)
-#     first_name = models.CharField(max_length=30, blank=True)
-#     bio = models.CharField(max_length=300, blank=True)
+# class User(AbstractUser):
+#     is_admin = models.BooleanField(default=False)
+#     is_manager = models.BooleanField(default=False)
+#     is_user = models.BooleanField(default=False)
+#     username = models.CharField(max_length=100)
+#     email = models.EmailField(max_length=100)
 
-# @receiver(post_save, sender=User)
-# def update_user_profile(sender, instance, created, **kwargs):
-#     if created:
-#         Profile.objects.create(user=instance)
-#     instance.profile.save()
+
+# class Admin(models.Model):
+#     user = models.OneToOneField(User, on_delete = models.CASCADE, primary_key = True)
+#     phone_number = models.CharField(max_length=20)
+
+# class Manager(models.Model):
+#     user = models.OneToOneField(User, on_delete = models.CASCADE, primary_key = True)
+#     phone_number = models.CharField(max_length=20)
+
+# class user(models.Model): 
+#     user = models.OneToOneField(User, on_delete = models.CASCADE, primary_key = True)
+#     phone_number = models.CharField(max_length=20)
+
+
+
 
 # class Manager(models.Model):
 #     first_name = models.CharField(max_length=30, blank=True)
@@ -59,3 +73,4 @@ class Comment(models.Model):
 
     class Meta:
         ordering = ['date_added']
+

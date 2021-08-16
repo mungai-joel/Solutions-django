@@ -12,8 +12,6 @@ app_name = "simple"
 
 urlpatterns = [
 
-    
-   
         path('accounts/register/',views.register, name="register"),
         path('accounts/login/', views.authlogin,name="login"),
         path('accounts/logout/', views.authlogout,name="logout"),
@@ -30,7 +28,7 @@ urlpatterns = [
     path('support/',views.support, name="support"),
     path('telecom/',views.telecom, name="telecom"),
     path('post_detail/<int:image_id>/',views.post_detail, name="post_detail"),
-
+    path('post/',views.post, name="post"),
 
     # path('accounts/password_change/', views.password_change, name='password_change'),
     # path('accounts/password_change/done/' , views.password_change_done,name='password_change_done'),

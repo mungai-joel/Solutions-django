@@ -8,13 +8,13 @@
     <div class="field">
         <h1 class="title">{{ post.title }}</h1>
 
-        <small>Posted at {{ Post.created_at }}</small>
+        <p><strong>{{ post.title }}</strong></p>
 
-        <p><strong>{{ Post.title }}</strong></p>
-
-        <p>{{ Post.description }}</p>
+        <p>{{ post.description }}</p>
 
         <hr>
+        <p><img src='{{ post.image }}' /> </p>
+
         <div class="control">
             <button class="button is-success">Submit</button>
         </div>
