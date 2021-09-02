@@ -1,46 +1,52 @@
 {% extends 'base.html' %} {% block content %}
-<h1 class="title">{{ post.title }}</h1>
+<div class="container">
+    <h1 class="title">{{ post.title }}</h1>
 
-<small>Posted at {{ post.created_at }}</small>
+    <small>Posted at {{ post.created_at }}</small>
 
-<p><strong>{{ post.title }}</strong></p>
+    <p><strong>{{ post.title }}</strong></p>
 
-<img src="{{ post.image.url }}" />
+    <img src="{{ post.image.url }}" / style="height: 200px; width: 200px;">
 
-<p>{{ post.description }}</p>
+    <p>{{ post.description }}</p>
 
-<hr>
-
-<h2 class="subtitle">Comments</h2>
-
-{% for comment in post.comments.all %}
-<article class="media">
-    <div class="media-content">
-        <div class="content">
-            <p>
-                <strong>{{ comment.name }}</strong> <small>{{ comment.date_added }}</small>
-                <br> {{ comment.body }}
-            </p>
-        </div>
-    </div>
-</article>
-{% empty %}
-<div class="notification">
-    <p>No comments yet!</p>
 </div>
-{% endfor %}
 
-<hr>
+<div class="container">
 
-<h2 class="subtitle">Add comment</h2>
+    <hr>
 
-<form method="post" action=".">
-    {% csrf_token %} {{ form.as_p }}
+    <h2 class="subtitle">Comments</h2>
 
-    <div class="field">
-        <div class="control">
-            <button class="button is-success">Submit</button>
+    {% for comment in post.comments.all %}
+    <article class="media">
+        <div class="media-content">
+            <div class="content">
+                <p>
+                    <strong>{{ comment.name }}</strong> <small>{{ comment.date_added }}</small>
+                    <br> {{ comment.body }}
+                </p>
+            </div>
         </div>
+    </article>
+    {% empty %}
+    <div class="notification">
+        <p>No comments yet!</p>
     </div>
-</form>
+    {% endfor %}
+</div>
+<hr>
+<div class="container">
+    <h2 class="subtitle">Add comment</h2>
+
+    <form method="post" action=".">
+        {% csrf_token %} {{ form.as_p }}
+
+        <div class="field">
+            <div class="control">
+                <button class="button is-success">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>
 {% endblock %}

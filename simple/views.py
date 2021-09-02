@@ -128,20 +128,22 @@ def post_detail(request, image_id=None):
     return render(request, 'post_detail.html', {'post': post, 'form': form})
 
 def post(request):
+    post = Post.objects.all()
     if request.method == 'POST':
         form = PostForm(request.POST)
 
 
         if form.is_valid():
-            post = form.save(post=False)
+            posts = form.save(post=False)
+            posts.post = post
             post.save()
 
-            return render(request, '/post')
+            return render(request, "/post")
 
     form = PostForm()
 
     context ={'form': form}
-    return render(request, 'post.html',context)
+    return render(request, 'post.html',{'post': post, 'form': form})
 
 @login_required
 def outsourcing(request):
