@@ -36,10 +36,15 @@ Clone this repo: git clone . https://git.jambopay.co.ke/interns/simple-store.git
 * Step 2:
 The repo comes in a zipped or compressed format. Extract to your prefered location and open it.
 * Step 3:
-open your terminal and navigate to solutions. Add virtual environment and install requirements.txt file.
+open your terminal and navigate to solutions. Add virtual environment and install requirements.txt file  . --  `pip3 install -r requrements.txt`--
 * Step 4:
+After adding the requirements, add database to the project `psql` add database `CREATE DATABASE (name of database);` then press enter, add user and password to your database.
+
+* Step 5:
+Make migrations to update database. Postgres sql . To make migrations run `python manage.py makemigrations` then `python manage.py migrate`
+* Step 6:
 To run the app, you'll have to run the following commands in your terminal
-python manage.py runserver
+`python manage.py runserver`
 
     
 ## Built With
